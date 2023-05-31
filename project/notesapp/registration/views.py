@@ -7,8 +7,11 @@ def register(request) :
     if request.method == 'POST' :
         form = reg_form(request.POST)
         if form.is_valid() :
+            form.save()
             redirect ('home.html')
+
     else :
         form = reg_form()
+        redirect('register.html')
 
     return render(request, 'register.html', {'form': form})
