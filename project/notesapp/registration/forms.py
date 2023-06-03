@@ -1,40 +1,19 @@
 from django import forms
 from django.forms import ModelForm
 from registration.models import reg_model
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User 
 
-class reg_form(ModelForm) :
+# class reg_form(ModelForm) : 
+class reg_form(UserCreationForm) :
     class Meta:
-        model = reg_model
+        # model = reg_model
+        model = User
         fields = [
-            'name',
+            'first_name',
+            'last_name',
             'username',
             'email',
-            'password',
-            'cnf_password',
+            'password1',
+            'password2'                    
         ]
-        widgets = {
-            'name' : forms.TextInput(attrs={
-                'placeholder' : 'Name', 
-                'class' : 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline'
-                }),
-
-            'username' : forms.TextInput(attrs={
-                'placeholder' : 'Username',
-                'class' : 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline'
-            }),
-
-            'email' : forms.EmailInput({
-                'placeholder' : 'Email',
-                'class' : 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline'
-            }),
-
-            'password' : forms.PasswordInput({
-                'placeholder' : 'Password',
-                'class' : 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline'
-            }),
-
-            'cnf_password' : forms.PasswordInput({
-                'placeholder' : 'Confirm Password',
-                'class' : 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline'
-            })
-        }

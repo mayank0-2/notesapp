@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block head %}
     <title>Register</title>
@@ -13,60 +13,13 @@
 <div class="flex justify-center items-cente h-full">
     <form class="bg-white shadwo-md rounded px-8 pt-6 pb-8 mb-4 mt-32 w-1/2" method="POST">
 
+        
         {% csrf_token %}
         
-     
-        
-
-        <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="name"> 
-                Name
-            </label>
-                {{form.name.error}}    
-                {{form.name}}
-
-
-        </div>
-
-        <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                Username
-            </label>
-
-            {{form.username}}
-
-
-        </div>
-
-        <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                Email
-            </label>
-
-            {{form.email}}
-
-        </div>
-
-        <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                Password
-            </label>
-
-            {{form.password}}
-
-        </div>
-
-        <div class="mb-6">
-            <label class="block text-gray-700 text-sm font-bold mb-2">
-                Confirm Password
-            </label>
-
-            {{form.cnf_password}}
-
-        </div>
+        {{form | crispy}}
 
         <div class="flex items-cente justify-between">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="sign_up">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="sign_up" value="save">
                 Sign Up
             </button>
 
