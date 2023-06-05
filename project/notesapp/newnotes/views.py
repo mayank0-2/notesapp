@@ -10,7 +10,8 @@ def NewNotes(request) :
         form = DisplayForm(request.POST)
         if form.is_valid() :
             form.save()
-            return render(request, 'home.html', {})
+            # return render(request, 'home.html', {})
+            return redirect ('/')
             
     else :
         form = DisplayForm()

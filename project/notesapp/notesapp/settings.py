@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'registration',
+    'newnotes',
     'crispy_forms',
     'crispy_tailwind',
     

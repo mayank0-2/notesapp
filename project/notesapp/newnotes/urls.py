@@ -21,4 +21,5 @@ from newnotes import views
 import registration
 urlpatterns = [
     path('', views.NewNotes, name = 'new_notes')
+    
 ]

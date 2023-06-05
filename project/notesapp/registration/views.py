@@ -15,3 +15,8 @@ def register(request) :
 
     return render(request, 'register.html', {'form': form})
 
+
+
+def NewNotes(request) :
+
+    return render(request, 'new_notes.html', {})
