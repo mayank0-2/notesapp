@@ -1,0 +1,24 @@
+{% load crispy_forms_tags %}
+
+{% block head %}
+    <title>New Note</title>
+
+{% endblock head%}
+
+{% block body %}
+
+{% include 'nav_bar.html' %}
+
+    <div class="flex justify-center items-cente h-full">
+        <form class="bg-white shadwo-md rounded px-8 pt-6 pb-8 mb-4 mt-32 w-1/2" method="POST">
+
+            {% csrf_token %}
+
+            {{ form | crispy }}
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="login" value="save">
+                Save
+            </button>
+        </form>
+    </div>
+
+{% endblock body %}
