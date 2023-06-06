@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from newnotes.models import FormModel
+
 # Create your views here.
 
 
@@ -9,3 +10,7 @@ def home_view(request) :
     else :
         data = None
     return render(request, 'home.html', {'data': data})
+
+
+
+    
