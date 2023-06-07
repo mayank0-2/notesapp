@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.contrib.auth import views as auth_views
+from home import views as home_views
 
 import registration
 urlpatterns = [
@@ -26,5 +27,7 @@ urlpatterns = [
     path('register/', include('registration.urls')),
     path('login/', auth_views.LoginView.as_view(template_name = 'login.html'), name = 'login'),
     path('logout/', auth_views.LogoutView.as_view(template_name = 'home.html'), name = 'logout'),
-    path('new_notes/', include('newnotes.urls'))
+    path('new_notes/', include('newnotes.urls')),
+    path('delete/<int:id>', home_views.delete_notes, name='del'),
+    path('edit/<int:id>', home_views.edit_notes, name='edit')
 ]

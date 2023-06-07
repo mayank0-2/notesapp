@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from newnotes.models import FormModel
+
 
 # Create your views here.
 
@@ -13,4 +14,15 @@ def home_view(request) :
 
 
 
+def delete_notes(request, id) :
+    if request.method == 'POST':
+        data = FormModel.objects.get(id=id)
+        data.delete()
+    return redirect('home') 
+
+
+def edit_notes(request, id) :
+    if request.method == 'POST':
+        pass
     
+    return redirect('home')
