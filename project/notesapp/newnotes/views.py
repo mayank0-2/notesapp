@@ -22,4 +22,3 @@ def NewNotes(request) :
     else :
         form = DisplayForm()
     return render(request, 'new_notes.html', {'form' : form})
-

@@ -29,5 +29,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name = 'home.html'), name = 'logout'),
     path('new_notes/', include('newnotes.urls')),
     path('delete/<int:id>', home_views.delete_notes, name='del'),
-    path('edit/<int:id>', home_views.edit_notes, name='edit')
+    path('edit/<int:id>', home_views.edit_notes, name='edit'),
+    path('update/<int:id>', home_views.update_notes, name='update'),
 ]
