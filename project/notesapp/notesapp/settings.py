@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'newnotes',
     'crispy_forms',
     'crispy_tailwind',
-    
+    'rest_framework',
+    'RestApi',  
 ]
 
 MIDDLEWARE = [
