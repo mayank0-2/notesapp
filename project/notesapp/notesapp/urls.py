@@ -32,4 +32,5 @@ urlpatterns = [
     path('delete/<int:id>', home_views.delete_notes, name='del'),
     path('edit/<int:id>', home_views.edit_notes, name='edit'),
     path('update/<int:id>', home_views.update_notes, name='update'),
+    path('api/', include('RestApi.urls')),
 ]
