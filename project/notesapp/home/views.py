@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from newnotes.models import FormModel
 from newnotes.forms import DisplayForm
-
+from registration.views import register
 
 # Create your views here.
 
@@ -9,10 +9,10 @@ from newnotes.forms import DisplayForm
 def home_view(request) :
     if request.user.is_authenticated :
         data = FormModel.objects.all()
+        return render(request, 'home.html', {'data': data})
     else :
         data = None
-    return render(request, 'home.html', {'data': data})
-
+        return register(request)
 
 
 def delete_notes(request, id) :
