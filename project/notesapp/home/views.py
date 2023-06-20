@@ -1,18 +1,17 @@
 from django.shortcuts import render,redirect
 from newnotes.models import FormModel
 from newnotes.forms import DisplayForm
-from registration.views import register
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
 
+@login_required
 def home_view(request) :
-    if request.user.is_authenticated :
-        data = FormModel.objects.all()
-        return render(request, 'home.html', {'data': data})
-    else :
-        data = None
-        return register(request)
+    data = FormModel.objects.all()
+    return render(request, 'home.html', {'data': data})
+
 
 
 def delete_notes(request, id) :

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from registration.forms import reg_form
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
+
+from home.views import home_view
 # Create your views here.
 
 def register(request) :
@@ -8,7 +11,12 @@ def register(request) :
         form = reg_form(request.POST)
         if form.is_valid() :
             form.save()
-            return render(request, 'home.html', {})
+            user = authenticate(request, username = form.cleaned_data['username'], password = form.cleaned_data['password1'])
+            if user is not None :
+                login(request, user)
+                return home_view(request)
+            else :
+                return render(request, 'home.html', {})
 
     else :
         form = reg_form()
